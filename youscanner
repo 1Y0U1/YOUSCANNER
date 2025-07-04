@@ -1,0 +1,131 @@
+require 'optparse'
+require 'socket'
+require 'net/ping'
+require 'timeout'
+require 'colorize'
+
+options = {}
+port = nil
+target = nil
+version = 1.0
+target_ping = nil
+
+def range_ports(target, start_port, end_port)
+  (start_port..end_port).each do |port|
+    response = check_port(target, port)
+    if response
+      puts "[*] Open Port Found: #{port}".colorize(:green).bold
+    else
+      puts "[.] Port #{port} is closed"
+    end
+  end
+end
+
+def all_ports(target)
+  range_ports(target, 1, 65535)
+end
+
+def check_Host(target_ping)
+  ping = Net::Ping::External.new(target_ping)
+  if ping.ping?
+    sleep(2)
+    STDOUT.puts "[*] Host is up"
+  else
+    STDERR.puts "[*] Host is unreachable"
+    exit
+  end
+end
+
+def check_port(target, port)
+  begin
+    s = Socket.new(Socket::AF_INET, Socket::SOCK_STREAM)
+    addr = Socket.pack_sockaddr_in(port, target)
+    Timeout.timeout(1) do
+      s.connect(addr)
+    end
+    return true
+  rescue Errno::ECONNREFUSED, Errno::ECONNABORTED, Timeout::Error, SocketError
+    return false
+  ensure
+    s.close if s
+end
+end
+
+begin
+  OptionParser.new do |opts|
+    opts.banner = "Usage:  ruby #{$0} [options]"
+    opts.on_tail("Example: ruby #{$0} -t <ip> -p <port>")
+    opts.on_tail("Example: ruby #{$0} -t <ip> -a")
+    opts.on_tail("Example: ruby #{$0} -t <ip> -r 1-22")
+
+     
+
+    opts.on("-p PORT", "--port PORT", "Specify port") do |port_arg|
+      options[:port] = true
+      port = port_arg.to_i
+    end
+
+    opts.on("-t TARGET", "--target TARGET", "Specify target") do |target_arg|
+      options[:target] = true
+      target = target_arg
+    end
+
+    opts.on("-v", "--version", "Show version") do 
+      puts version
+      exit 
+    end
+
+    opts.on("-a", "--all", "Scan all ports (1-65535)   NOT Recomended") do 
+      options[:all] = true
+    end
+
+    opts.on("-r START-END", "--range START-END", "Specify port range") do |range_arg|
+      start_port, end_port = range_arg.split('-').map(&:to_i)
+      options[:range] = [start_port, end_port]
+    end
+
+    opts.on("-h", "--help", "Show help") do 
+      puts `figlet YOUSCANNER`.colorize(:blue).bold
+      puts opts
+      opts.separator ""
+      exit 1
+    end 
+    opts.separator ""
+
+  end.parse!
+
+rescue OptionParser::MissingArgument
+  puts "ERROR: Port and target must be specified"
+  exit
+end
+
+if options.empty?
+  puts "Use -h for help"
+  exit
+end
+
+if options[:target] && options[:port]
+  sleep(2)
+  puts "[*] Starting The Connection...."
+  target_ping = target
+  check_Host(target_ping)
+  if check_port(target, port)
+    puts "[*] Open Port Found: #{port}".colorize(:green)
+  else
+    puts "[.] Port #{port} is closed"
+  end
+elsif options[:target] && options[:all]
+  puts "[*] Starting The Connection...."
+  target_ping = target
+  check_Host(target_ping)
+  all_ports(target)
+elsif options[:target] && options[:range]
+  puts "[*] Starting The Connection...."
+  target_ping = target
+  check_Host(target_ping)
+  range_ports(target, *options[:range])
+else
+  STDERR.puts "ERROR: Missing port or target."
+  exit 1
+ end
+
