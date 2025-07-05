@@ -1,3 +1,3 @@
 # YOUSCANNER
 
-bash setup.sh
+YOUSCANNER is ruby based port and services scanner. 
