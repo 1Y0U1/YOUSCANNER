@@ -16,7 +16,7 @@ sudo gem install  timeout
 echo ""
 sudo gem install socket
 echo""
-chmod +x youscanner
+sudo chmod +x youscanner
 cp youscanner /usr/bin
 echo "\n***done***\n"
 clear
