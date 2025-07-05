@@ -55,7 +55,7 @@ end
 
 begin
   OptionParser.new do |opts|
-    opts.banner = "Usage:  ruby #{$0} [options]"
+    opts.banner = "Usage:  ruby youscanner [options]"
     opts.on_tail("Example: ruby #{$0} -t <ip> -p <port>")
     opts.on_tail("Example: ruby #{$0} -t <ip> -a")
     opts.on_tail("Example: ruby #{$0} -t <ip> -r 1-22")
