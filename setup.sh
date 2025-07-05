@@ -1,25 +1,25 @@
 clear
 
-echo -e "\e[5m\e[1;34m$(figlet 'YOUSCANNER')\e[0m"
+echo -e "\e[5m\e[1;34m$(figlet 'YOUFINDER')\e[0m"
 echo Setup Starting........
 
 sudo apt-get install ruby   
 
-echo ""
-sudo gem install net-ping
+
 echo ""
 sudo gem install colorize
 echo ""
 sudo gem install optparse
 echo ""
-sudo gem install  timeout
+sudo gem install net-http
 echo ""
-sudo gem install socket
-echo""
-sudo chmod +x youscanner
-cp youscanner /usr/bin
+
+sudo chmod +x youfinder
+cp youfinder /usr/bin
 echo "\n***done***\n"
 clear
-youscanner
+echo ""
+echo Setup Complete GO AHEAD!!!!!!  
+echo ""      
+echo "----->Now you can use ruby youfinder  from everywhere<-----"
 
-echo Setup Complete GO AHEAD!!!!!!
