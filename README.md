@@ -13,7 +13,7 @@ sudo bash setup.sh <br>
 
 # Optional Arguments
 
--h or --help -> For Help <br>
--a  -> For all ports  <br>
--r  -> Port Number Range start-End
+-h or --help   ---> For Help <br>
+-a   ---> For all ports  <br>
+-r   ---> Port Number Range start-End
 
