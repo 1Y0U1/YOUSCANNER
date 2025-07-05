@@ -15,7 +15,7 @@ sudo gem install net-http
 echo ""
 
 sudo chmod +x youfinder
-cp youfinder /usr/bin
+cp youscanner /usr/bin
 echo "\n***done***\n"
 clear
 echo ""
