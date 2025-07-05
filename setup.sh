@@ -22,5 +22,5 @@ clear
 echo ""
 echo Setup Complete GO AHEAD!!!!!!  
 echo ""      
-echo "----->Now you can use ruby youscanner from everywhere<-----"
+echo "----->Now you can use youscanner from everywhere<-----"
 
