@@ -14,8 +14,8 @@ echo ""
 sudo gem install net-http
 echo ""
 
-sudo chmod +x youscanner
 sudo cp youscanner /usr/bin
+sudo chmod +x /usr/bin/youscanner
 echo "\n***done***\n"
 clear
 echo ""
