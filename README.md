@@ -9,11 +9,11 @@ sudo chmod +x setup.sh <br>
 sudo bash setup.sh <br>
 
 # Mandatory Argument
--t  and -p   <br>
+-t  and -p   ---> Target and Port To Scan <br>
 
 # Optional Arguments
 
--h or --help   ---> For Help <br>
--a   ---> For all ports  <br>
--r   ---> Port Number Range start-End
+-h or --help   --->  For Help <br>
+-a   --->  For all ports  <br>
+-r   --->  Port Number Range start-End
 
