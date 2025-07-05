@@ -11,8 +11,9 @@ sudo gem install colorize
 echo ""
 sudo gem install optparse
 echo ""
-sudo gem install net-http
+sudo gem install timeout
 echo ""
+sudo gem install net-ping
 
 sudo cp youscanner /usr/bin
 sudo chmod +x /usr/bin/youscanner
