@@ -21,5 +21,5 @@ clear
 echo ""
 echo Setup Complete GO AHEAD!!!!!!  
 echo ""      
-echo "----->Now you can use ruby youfinder  from everywhere<-----"
+echo "----->Now you can use ruby youfinder from everywhere<-----"
 
