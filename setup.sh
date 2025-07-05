@@ -1,9 +1,10 @@
 clear
 
-echo -e "\e[1;34m$(figlet 'YOUSCANNER')\e[0m"
+echo -e "\e[5m\e[1;34m$(figlet 'WELCOME')\e[0m"
+echo Setup Starting........
 
 sudo apt-get install ruby   
-echo Setup Starting........
+
 echo ""
 sudo gem install net-ping
 echo ""
