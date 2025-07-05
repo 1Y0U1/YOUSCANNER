@@ -1,1 +1,3 @@
 # YOUSCANNER
+
+bash setup.sh
