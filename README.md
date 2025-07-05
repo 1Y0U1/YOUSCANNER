@@ -3,7 +3,7 @@
 YOUSCANNER is ruby based port and services scanner for hacker or pentesters.
 
 #Installation
-sudo git clone https://github.com/1Y0U1/YOUSCANNER.git
+sudo git clone https://github.com/1Y0U1/YOUSCANNER.git <br>
 cd YOUSCANNER
 sudo chmod +x setup.sh
 sudo bash setup.sh
