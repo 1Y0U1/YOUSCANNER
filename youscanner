@@ -31,9 +31,9 @@ def check_Host(target_ping)
   ping = Net::Ping::External.new(target_ping)
   if ping.ping?
     sleep(2)
-    STDOUT.puts "[*] Host is up"
+    STDOUT.puts "[*] Host is up".colorize(:yellow)
   else
-    STDERR.puts "[*] Host is unreachable"
+    STDERR.puts "[*] Host is unreachable".colorize(:red).bold
     exit
   end
 end
@@ -117,9 +117,9 @@ if options[:target] && options[:port]
   target_ping = target
   check_Host(target_ping)
   if check_port(target, port)
-    puts "[*] Open Port Found: #{port}".colorize(:green)
+    puts "[*] Open Port Found: #{port}".colorize(:green).bold
   else
-    puts "[.] Port #{port} is closed"
+    puts "[.] Port #{port} is closed".colorize(:red).bold
   end
 elsif options[:target] && options[:all]
   puts "[*] Starting The Connection...."
