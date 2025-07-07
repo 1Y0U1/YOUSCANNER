@@ -88,6 +88,11 @@ begin
 
     opts.on("-h", "--help", "Show help") do 
       puts `figlet YOUSCANNER`.colorize(:blue).bold
+  puts "-"*65
+    puts "        YOUSCANNER - PORT SCANNER".colorize(:light_blue).bold
+puts "                Developed by Rubal Sharma (YOU)".colorize(:red).bold
+puts "-" * 65
+
       puts opts
       opts.separator ""
       exit 1
