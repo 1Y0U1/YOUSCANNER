@@ -31,7 +31,7 @@ def check_Host(target_ping)
   ping = Net::Ping::External.new(target_ping)
   if ping.ping?
     sleep(2)
-    STDOUT.puts "[*] Host is up".colorize(:yellow)
+    STDOUT.puts "[*] Host is up".colorize(:yellow).bold
   else
     STDERR.puts "[*] Host is unreachable".colorize(:red).bold
     exit
